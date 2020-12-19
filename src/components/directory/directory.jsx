@@ -16,31 +16,37 @@ class Directory extends Component {
                 title: "mobiles",
                 imgeUrl: mobilesPic,
                 id: 1,
+                linkURL: "mobiles",
             },
             {
                 title: "laptops",
                 imgeUrl: laptopsPic,
                 id: 2,
+                linkURL: "",
             },
             {
                 title: "watches",
                 imgeUrl: smartWatchs,
                 id: 5,
+                linkURL: "",
             },
             {
                 title: "tablets",
                 imgeUrl: tabletsPic,
                 size: "large",
                 id: 4,
+                linkURL: "",
             },
             {
                 title: "cameras",
                 imgeUrl: camerasPic,
                 size: "large",
                 id: 3,
+                linkURL: "",
             },
         ],
     };
+
     render() {
         return (
             <div className="directory-menu">
@@ -51,6 +57,7 @@ class Directory extends Component {
                             title={section.title}
                             image={section.imgeUrl}
                             size={section.size}
+                            linkURL={section.linkURL}
                         />
                     );
                 })}
