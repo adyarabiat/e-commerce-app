@@ -11,6 +11,7 @@ const ItemCollection = (props) => {
                     backgroundImage: `url(${props.image}) `,
                 }}
             />
+
             <div className="content">
                 <span className="name">{props.name.toUpperCase()}</span>
                 <span className="price">{props.price}</span>
@@ -18,5 +19,4 @@ const ItemCollection = (props) => {
         </div>
     );
 };
-
 export default ItemCollection;
