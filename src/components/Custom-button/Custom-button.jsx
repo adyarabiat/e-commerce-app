@@ -4,7 +4,12 @@ import "./Custom-button.scss";
 
 const CustomButton = (props) => {
     return (
-        <button className="custom-button" {...props}>
+        <button
+            className={`${
+                props.isgooglesignin ? "google-sign-in" : ""
+            } custom-button`}
+            {...props}
+        >
             {props.children}
         </button>
     );
