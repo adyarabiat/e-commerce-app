@@ -48,7 +48,10 @@ class SignIn extends Component {
                     />
                     <div className="buttons">
                         <CustomButton type="submit">SIGN IN</CustomButton>
-                        <CustomButton onClick={signInWithGoogle} isgooglesignin>
+                        <CustomButton
+                            onClick={signInWithGoogle}
+                            isgooglesignin="true"
+                        >
                             SIGN IN with Google
                         </CustomButton>
                     </div>
@@ -59,3 +62,5 @@ class SignIn extends Component {
 }
 
 export default SignIn;
+
+// isgooglesignin="true" Here I just passed any data to remove the warrning from the React library
