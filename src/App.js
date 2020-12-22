@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 
 import "./App.css";
@@ -44,12 +44,26 @@ class App extends Component {
                 <Switch>
                     <Route path="/" exact component={Homepage} />
                     <Route path="/shop" component={ShopPage} />
-                    <Route path="/sign-In" component={SingInAndSignUp} />
+                    <Route
+                        path="/sign-In"
+                        render={() => {
+                            return this.props.currentUser ? (
+                                <Redirect to="/" />
+                            ) : (
+                                <SingInAndSignUp />
+                            );
+                        }}
+                    />
                 </Switch>
             </div>
         );
     }
 }
+const mapStateToProps = (state) => {
+    return {
+        currentUser: state.user.currentUser,
+    };
+};
 
 const mapDispatchedToProps = (dispatch) => {
     return {
@@ -57,4 +71,4 @@ const mapDispatchedToProps = (dispatch) => {
     };
 };
 
-export default connect(null, mapDispatchedToProps)(App);
+export default connect(mapStateToProps, mapDispatchedToProps)(App);
