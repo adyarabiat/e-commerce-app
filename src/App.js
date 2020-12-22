@@ -32,7 +32,7 @@ class App extends Component {
                 this.setState({ currentUser: null });
             }
 
-            console.log(user);
+            // console.log(user);
         });
     }
 
@@ -41,7 +41,7 @@ class App extends Component {
     }
 
     render() {
-        console.log(this.state);
+        // console.log(this.state);
         return (
             <div>
                 <Header currentUser={this.state.currentUser} />
