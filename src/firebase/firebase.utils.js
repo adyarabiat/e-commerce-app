@@ -5,20 +5,59 @@ import "firebase/auth";
 const config = {
     apiKey: "AIzaSyD1XooeYE1ADSB2RIk-m6QnUa9agd373TY",
     authDomain: "e-commerce-db-5197b.firebaseapp.com",
+    databaseURL: "https://e-commerce-db-5197b-default-rtdb.firebaseio.com",
     projectId: "e-commerce-db-5197b",
     storageBucket: "e-commerce-db-5197b.appspot.com",
     messagingSenderId: "821835679874",
     appId: "1:821835679874:web:e5ddf5ecf253e766b2cc9b",
 };
-
+// Initialize Firebase
 firebase.initializeApp(config);
 
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 
+// All this you can get from the docs in the auth then sginIn with Google
 const provider = new firebase.auth.GoogleAuthProvider();
 provider.setCustomParameters({ prompt: "select_account" });
 export const signInWithGoogle = () => auth.signInWithPopup(provider);
+
+// Store the user info
+// we are using it in the app.js to store the user data and to update the state
+export const createUserProfileDocument = async (userAuth, additionalData) => {
+    // if the user not signed in it will return null
+    // so here we say if !null which is true just return
+    if (!userAuth) {
+        return;
+    }
+    // now here if the user signed in :
+
+    // we give here the path and where to place it
+    const userRef = firestore.doc(`user/${userAuth.uid}`);
+
+    // then here give it a snapshot to get the actual data from firestore
+    const snapShot = await userRef.get();
+    console.log(snapShot); //will find a propirty called exosts and it is true or false depends if the user exist in our firestore or not
+
+    // here we check if the user exist or not if not we will userRef.set() so we create data for that user
+    if (!snapShot.exists) {
+        const { displayName, email } = userAuth;
+        const createdAt = new Date();
+
+        try {
+            await userRef.set({
+                displayName,
+                email,
+                createdAt,
+                ...additionalData,
+            });
+        } catch (error) {
+            console.log("Error creating user", error.message);
+        }
+    }
+
+    return userRef;
+};
 
 export default firebase;
 
