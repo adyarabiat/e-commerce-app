@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 
 import { auth } from "../../firebase/firebase.utils";
 import "./header.scss";
+import Cart from "../cart/cart";
+import CartDropdown from "../cart-dropdown/CartDropDown";
 
 const Header = (props) => {
     return (
@@ -27,7 +29,9 @@ const Header = (props) => {
                         Sign In
                     </Link>
                 )}
+                <Cart />
             </div>
+            {props.cartDropdown ? null : <CartDropdown />}
         </div>
     );
 };
@@ -35,6 +39,7 @@ const Header = (props) => {
 const mapStateToProps = (state) => {
     return {
         currentUser: state.user.currentUser,
+        cartDropdown: state.cart.hidden,
     };
 };
 
