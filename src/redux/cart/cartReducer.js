@@ -26,6 +26,7 @@ const cartReducer = (state = INIT_STATE, action) => {
                             : cartItem;
                     });
                 }
+
                 return [...cartItems, { ...cartItemToAdd, quantity: 1 }];
             };
             // here is the ADD_ITEM return
