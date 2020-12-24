@@ -18,6 +18,7 @@ const PreviewCollection = (props) => {
                                 name={item.name}
                                 image={item.imageUrl}
                                 price={item.price}
+                                theWholeItem={item}
                             />
                         );
                     })}
