@@ -21,7 +21,7 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 const mapStateToProps = (state) => {
-    console.log(state);
+    // console.log(state);
     return {
         itemCount: state.cart.cartItems.reduce((acc, cartItem) => {
             return acc + cartItem.quantity;

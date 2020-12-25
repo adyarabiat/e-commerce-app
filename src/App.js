@@ -10,6 +10,7 @@ import SingInAndSignUp from "./pages/sign-In-and-sign-up-page/sign-In-and-sign-u
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 import "./firebase/firebase.utils";
 import { setCurrentUser } from "./redux/user/userActions";
+import CheckoutPage from "./pages/checkout/checkout";
 
 class App extends Component {
     unsubscribeFromAuth = null;
@@ -54,6 +55,7 @@ class App extends Component {
                             );
                         }}
                     />
+                    <Route path="/checkout" component={CheckoutPage} />
                 </Switch>
             </div>
         );
