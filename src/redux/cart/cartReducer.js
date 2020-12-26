@@ -34,6 +34,36 @@ const cartReducer = (state = INIT_STATE, action) => {
                 ...state,
                 cartItems: addITemToCart(state.cartItems, action.payload),
             };
+
+        case actionType.CLEAR_ITEM_CART:
+            return {
+                ...state,
+                cartItems: state.cartItems.filter((cartItem) => {
+                    return cartItem.id !== action.payload.id;
+                }),
+            };
+
+        case actionType.REMOVE_ITEM:
+            const removeItemFromCart = (cartItems, cartItemToRemove) => {
+                const exitingCartITem = cartItems.find((cartItem) => {
+                    return cartItem.id === cartItemToRemove.id;
+                });
+                if (exitingCartITem.quantity === 1) {
+                    return cartItems.filter((cartItem) => {
+                        return cartItem.id !== cartItemToRemove.id;
+                    });
+                }
+
+                return cartItems.map((cartItem) => {
+                    return cartItem.id === cartItemToRemove.id
+                        ? { ...cartItem, quantity: cartItem.quantity - 1 }
+                        : cartItem;
+                });
+            };
+            return {
+                ...state,
+                cartItems: removeItemFromCart(state.cartItems, action.payload),
+            };
         default:
             return state;
     }
