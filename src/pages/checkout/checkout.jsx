@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 
 import "./checkout.scss";
 import ChechoutItem from "../../components/checkout/chechout-item";
+import StripeCheckoutButton from "../../components/strip-button/strip-button";
 
 const CheckoutPage = (props) => {
     return (
@@ -29,7 +30,15 @@ const CheckoutPage = (props) => {
             })}
             <div className="total">
                 <span>Total: ${props.total}</span>
+                <div className="warning">
+                    *Please use the following test credit card for payments*
+                    <br />
+                    4242424242424242 Visa Any 3 digits Any future date
+                    4000056655665556 Visa (debit) Any 3 digits Any future date
+                    5555555555554444 Mastercard Any 3 digits Any future date
+                </div>
             </div>
+            <StripeCheckoutButton price={props.total} />
         </div>
     );
 };

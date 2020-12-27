@@ -6,12 +6,13 @@ import { auth } from "../../firebase/firebase.utils";
 import "./header.scss";
 import Cart from "../cart/cart";
 import CartDropdown from "../cart-dropdown/CartDropDown";
+import { ReactComponent as Icon } from "../../assets/robot.svg";
 
 const Header = (props) => {
     return (
         <div className="header">
             <Link to="/">
-                <i className="fas fa-shipping-fast fa-3x logo-container"></i>
+                <Icon className="icon" />
             </Link>
             <div className="options">
                 <Link className="option" to="/shop">

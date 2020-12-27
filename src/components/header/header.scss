@@ -1,4 +1,4 @@
-$text-color: #333;
+$text-color: #ffffff;
 $logo-color: #808080;
 
 .header {
@@ -8,9 +8,8 @@ $logo-color: #808080;
     justify-content: space-between;
     margin-bottom: 25px;
 
-    .logo-container {
-        color: $logo-color;
-        height: 100%;
+    .icon {
+        height: 50%;
         width: 70px;
     }
 
