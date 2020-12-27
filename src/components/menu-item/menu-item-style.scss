@@ -2,6 +2,7 @@ $main-background-color: #010101;
 $text-color: #333;
 
 .menu-item {
+    position: relative;
     min-width: 30%;
     height: 240px;
     flex: 1 1 auto;
@@ -24,15 +25,17 @@ $text-color: #333;
             opacity: 0.9;
         }
     }
-    &.large {
-        height: 380px;
-    }
+
     &:first-child {
         margin-right: 7.5px;
     }
 
     &:last-child {
         margin-left: 7.5px;
+    }
+
+    @media screen and (max-width: 800px) {
+        height: 200px;
     }
 
     .background-image {
@@ -44,25 +47,26 @@ $text-color: #333;
 
     .content {
         height: 90px;
-        padding: 0 25px;
+        padding: 0.5 25px;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        border: 1px solid $text-color;
+        border: 1px solid black;
         background-color: white;
         opacity: 0.7;
         position: absolute;
 
         .title {
+            padding: 5px;
             font-weight: bold;
             margin-bottom: 6px;
             font-size: 22px;
-            color: $text-color;
+            color: #4a4a4a;
         }
 
         .subtitle {
-            color: $text-color;
+            color: black;
             font-weight: lighter;
             font-size: 16px;
         }

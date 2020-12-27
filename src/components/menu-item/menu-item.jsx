@@ -1,17 +1,12 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 
 import "./menu-item-style.scss";
 
 const MenuItem = (props) => {
     // console.log(props);
     return (
-        <div
-            className={`menu-item ${props.size}`}
-            onClick={() =>
-                props.history.push(`${props.match.url}${props.linkURL}`)
-            }
-        >
+        <Link className={`menu-item ${props.size}`} to="/shop">
             <div
                 className="background-image"
                 style={{
@@ -22,7 +17,7 @@ const MenuItem = (props) => {
                 <h1 className="title">{props.title.toUpperCase()}</h1>
                 <span className="subtitle">SHOP NOW</span>
             </div>
-        </div>
+        </Link>
     );
 };
 

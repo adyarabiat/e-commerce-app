@@ -8,9 +8,20 @@ $logo-color: #808080;
     justify-content: space-between;
     margin-bottom: 25px;
 
+    @media screen and (max-width: 800px) {
+        height: 60px;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
     .icon {
-        height: 50%;
+        height: 100%;
         width: 70px;
+        padding: 13px;
+
+        @media screen and (max-width: 800px) {
+            width: 50px;
+            padding: 0;
+        }
     }
 
     .options {
@@ -19,6 +30,10 @@ $logo-color: #808080;
         display: flex;
         align-items: center;
         justify-content: flex-end;
+
+        @media screen and (max-width: 800px) {
+            width: 80%;
+        }
 
         .option {
             padding: 10px 15px;

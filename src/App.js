@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 
-import "./App.css";
+import { GlobalStyle } from "./global-styles";
 import Homepage from "./pages/homepage/homepage";
 import ShopPage from "./pages/shoppage/shoppage";
 import Header from "./components/header/header";
@@ -42,6 +42,7 @@ class App extends Component {
         // console.log(this.state);
         return (
             <div>
+                <GlobalStyle />
                 <Header />
                 <Switch>
                     <Route path="/" exact component={Homepage} />
