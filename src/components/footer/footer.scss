@@ -1,0 +1,14 @@
+.footer-main {
+    border-top: 0.5px solid #ffff;
+    height: 100px;
+    color: #ffff;
+    text-align: center;
+    margin-top: 100px;
+
+    .icons img {
+        margin: 10px 10px;
+    }
+    &p {
+        margin-top: 90px;
+    }
+}
