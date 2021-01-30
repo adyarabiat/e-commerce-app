@@ -3,18 +3,16 @@ import React from "react";
 import "./form-input.scss";
 
 const FormInput = (props) => {
-    return (
-        <div className="group">
-            <input className="form-input" {...props} />
-            <label
-                className={`${
-                    props.value.length ? "shrink" : ""
-                } form-input-label`}
-            >
-                {props.label}
-            </label>
-        </div>
-    );
+  return (
+    <div className="group">
+      <input className="form-input" {...props} />
+      <label
+        className={`${props.value.length ? "shrink" : ""} form-input-label`}
+      >
+        {props.label}
+      </label>
+    </div>
+  );
 };
 
 export default FormInput;
